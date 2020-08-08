@@ -1,0 +1,3 @@
+application:
+  netty:
+    port: 8675
