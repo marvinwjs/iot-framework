@@ -1,5 +1,7 @@
 package com.marvin.iot.netty;
 
+import com.marvin.iot.netty.handler.ChannelManagerHandler;
+import com.marvin.iot.netty.handler.EchoHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -79,7 +81,8 @@ public abstract class AbstractListenerServer implements BasicServer{
 
     private void beforeInitChannel(SocketChannel socketChannel){
         socketChannel.pipeline()
-                .addLast(new IdleStateHandler(10, 0, 0, TimeUnit.SECONDS));
+                .addLast(new IdleStateHandler(10, 0, 0, TimeUnit.SECONDS))
+        .addLast(new ChannelManagerHandler());
 
     }
 
