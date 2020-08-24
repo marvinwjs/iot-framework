@@ -12,6 +12,7 @@
         <module>netty-server</module>
         <module>iot-beans</module>
         <module>framework</module>
+        <module>iot-boot</module>
     </modules>
 
     <parent>

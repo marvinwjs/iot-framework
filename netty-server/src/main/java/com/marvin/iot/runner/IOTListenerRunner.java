@@ -22,6 +22,9 @@ public class IOTListenerRunner implements CommandLineRunner {
     public void run(String... args) throws Exception {
         LOGGER.info("start netty server");
 
-        new IOTListenerServer(nettyConfig.getPort()).startServer();
+        IOTListenerServer server = new IOTListenerServer(nettyConfig.getPort());
+        server.setBossThreadNum(nettyConfig.getBossThreadNum());
+        server.setWorkerThreadNum(nettyConfig.getWorkerThreadNum());
+        server.startServer();
     }
 }

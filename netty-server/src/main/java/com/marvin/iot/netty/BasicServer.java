@@ -1,14 +1,18 @@
 package com.marvin.iot.netty;
 
 /**
+ *
  * @author marvinwjs
  */
-public interface BasicServer {
+public abstract class BasicServer {
+    protected boolean isRunning;
+
     /**
-     * server start
+     * server is running
+     *
      * @return
      */
-    public boolean startServer();
-
-    public void stopServer();
+    public boolean isRunning(){
+        return this.isRunning;
+    }
 }
